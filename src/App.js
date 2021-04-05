@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const title = "Agbenu demo";
+  const num = 60;
+  const pple = {name: 'Eli' , age: 8 }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>{ title }</h3>
+      <p>Liked { num } times </p>
+      <hr/>
+      <h3>{ "Static string" }</h3>
+      <p> { Math.random() * 4 } </p>
+      <p> { [ 4, 8, 12, 16 , 20 ] } </p>
     </div>
   );
 }
