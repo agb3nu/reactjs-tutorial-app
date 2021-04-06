@@ -1,60 +1,20 @@
-import { useState } from 'react';
+import { useState } from "react";
+import BlogList from "./BlogList";
 
 const Home = () => {
+  const [blogs, setBlogs] = useState([
+    { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
+    { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
+    { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
+  ])
 
-	const handleClick = () =>{
-		console.log('click demo');
-	}
-
-	const handleClickAgain = (name) => {
-		console.log('hello ' + name );
-	}
-
-	const handleClickAgainWithEvent = (name,e) => {
-		console.log('hello ' + name , e.target);
-	}
-
-	const handleClickWithEvent = (e) =>{
-		console.log('click demo',e);
-	}
-
-
-	const handleClickToShowHooks= (e) =>{
-		console.log('Calvin');
-		setName('Calvin');
-		setAge(90);
-	}
-
-
-	const [ name , setName ] = useState("John");
-	const [ age , setAge ] = useState(4);
-
-	return (
-			<div className="home">
-				<h2>home page</h2>
-				<button onClick={handleClick}>Click me</button>
-				<hr/>
-
-				<button onClick={()=>{
-					handleClickAgain("Tony")
-				}}>Click me again</button>
-				<hr/>
-
-				<button onClick={(e)=>{
-					handleClickAgainWithEvent("Tony",e)
-				}}>Click me again with event</button>
-				<hr/>
-
-				<button onClick={handleClickWithEvent}>Click with event</button>
-			
-				<hr/>
-
-				<button onClick={handleClickToShowHooks}>Click to show hooks</button>
-
-				<p>Details are reactive: {name } is { age } </p>
-			</div>
-		);
+  return (
+    <div className="home">
+      <BlogList blogs={blogs} title="All Blogs" />
+      <hr/>
+      <BlogList blogs={blogs.filter(blog => blog.author === 'mario')} title="Mario's Blogs" />
+    </div>
+  );
 }
-
-
+ 
 export default Home;
